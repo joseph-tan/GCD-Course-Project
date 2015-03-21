@@ -18,6 +18,7 @@ testdata <- cbind(subjtest,ytest,xtest)
 xtrain <- read.table("./UCI HAR Dataset/train/X_train.txt")
 ytrain <- read.table("./UCI HAR Dataset/train/Y_train.txt")
 subjtrain <- read.table("./UCI HAR Dataset/train/subject_train.txt")
+traindata <- cbind(subjtrain,ytrain,xtrain)
 
 ## Merge training and test sets to create one data set ("data")
 
