@@ -9,7 +9,10 @@ This README explains the code in the run_analysis.R file, which:
 * Appropriately labels the data set with descriptive variable names; and
 * From the data set created, creates a second, independent tidy data set with 
     the average of each variable for each activity and each subject.
-    
+
+As stated in the run_analysis.R file, we assume that the UCI HAR Dataset folder is saved in the user's
+working directory.  
+
 ## Merge training and test sets (lines 16-19, 24-27, 31)
 
 We use the read.table() function to read the x_test.txt, y_test.txt and subject_test.txt files into data frames
@@ -33,14 +36,15 @@ into a character vector f1.
 
 The entries of f1 are inherently descriptive, as they indicate whether they are time (t) or frequency (f) domain signals, 
 come from the Body or Gravity, were obtained from the accelerometer (Acc) or gyroscope (Gyro), were processed 
-to calculate Jerk or magnitude (Mag), and the axial direction (X, Y, Z).  Further information, particularly on how these
-signals were processed to obtain the final variables, can be found in the features_info.txt file in the UCI HAR 
-Dataset folder. 
+to calculate Jerk or magnitude (Mag), and the axial direction (X, Y, Z).  The variable names are already long enough as
+they are, so I decided not to expand them further, but instead, further information, particularly on how these
+signals were processed to obtain the final variables, can be found in the codebook and the features_info.txt file 
+in the UCI HAR Dataset folder. 
 
 Nonetheless, we clean up the entries by using str_replace_all() to:
-* Converting "-"s to "."s for easier reading - this yields f2
-* Removing "()"s which don't add to the meaning of the names - this yields f3
-* Changing "std" to "std_dev" which is more intuitive as an abbreviation for standard deviation - this yields **f4**
+* Convert "-"s to "."s for easier reading - this yields f2
+* Remove "()"s which don't add to the meaning of the names - this yields f3
+* Change "std" to "std_dev" which is more intuitive as an abbreviation for standard deviation - this yields **f4**
 
 We then create a column names vector "col" by concatenating the strings "Subject" (corresponding to column 1 or 
 the subjtest/subjtrain frame), "Activity" (corresponding to column 2 or the ytest/ytrain frame) and **f4**, and assign
@@ -77,7 +81,27 @@ data frame, and (iii) spit out the activity name as a factor.  This activity nam
 (i.e. a number) for each observation in the "Activity" column. 
 The mutated data frame is stored as "data4".
 
+## Creates second tidy data set with average of each variable for each Subject/ Activity (lines 70-72, 76)
 
+We start with data4 and chain several functions under the dplyr package.  First, we group_by() the "Subject" and
+"Activity" columns - this yields 180 unique groups (30 subjects x 6 activities).  Then we use the summarise_each()
+function to find the mean of all the observations of each variable (i.e. column) for each unique group.  This is
+done by applying funs(mean) to each column.  
 
+This should yield a tidy data set "tidydata".  The data is tidy because each measurement (i.e. variable) is in a separate
+column, and each observation of the grouped data is in a separate row.  Each observation of the grouped data corresponds to 
+the measurements of one subject carrying out one activity.  There is also a row at the top of tidydata with the variable
+names.  Where these may not be human-readable, we have explained them in the Code Book.  
 
-Some people have lost marks in previous courses for not making it easy for their reviewers to give them marks. Don't just make a tidy data set, make it clear to people reviewing it why it is tidy. When you given the variables descriptive names, explain why the names are descriptive. Don't give your reviewers the opportunity to be confused about your work, spell it out to them.
+## Writes tidydata data frame to tidydata.txt file (line 76)
+
+Finally, per the assignment instructions, we write the data frame into a file called "tidydata.txt" which
+is saved in the user's working directory.  
+
+This file can be opened in R using the following code:
+data100 <- read.table("./tidydata.txt", header = TRUE)
+View(data100)
+
+References:
+https://class.coursera.org/getdata-012/forum/thread?thread_id=9
+"The components of tidy data" lecture slides
