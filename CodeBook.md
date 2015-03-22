@@ -1,5 +1,5 @@
 # CodeBook  
-*Adapted from README.txt and features_info.txt files in UCI HAR Dataset folder*
+*Adapted from README.txt and features_info.txt files in UCI HAR Dataset folder.  Key additions in para 1 of "Raw Data" and "Processed Data" section.*
 
 ## Study Design
 
