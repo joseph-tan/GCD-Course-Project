@@ -93,9 +93,7 @@ column, and each observation of the grouped data is in a separate row.  Each obs
 the measurements of one subject carrying out one activity.  There is also a row at the top of tidydata with the variable
 names.  Where these may not be human-readable, we have explained them in the Code Book.  
 
-## Writes tidydata data frame to tidydata.txt file (line 76)
-
-Finally, we write the data frame into a file called "tidydata.txt" which is saved in the user's working directory.  
+Finally, we write the tidydata data frame into a file called "tidydata.txt" which is saved in the user's working directory.  
 
 This file can be opened in R using the following code:  
 data100 <- read.table("./tidydata.txt", header = TRUE)  
