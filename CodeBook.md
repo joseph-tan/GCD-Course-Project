@@ -28,10 +28,10 @@ For each subject (subject_test/subject_train) and activity (y_test/y_train), the
 
 **Annex 1** below contains the full list of signals.  
 
-*Derivation of raw data*  
+### *Derivation of raw data*  
 Time domain signals were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals using another low pass Butterworth filter with a corner frequency of 0.3 Hz. 
 
-*Derivation of variables*  
+### *Derivation of variables*  
 The set of variables that were estimated from these signals are:   
 
 * mean(): Mean value  
@@ -54,11 +54,15 @@ The set of variables that were estimated from these signals are:
 
 ## Processed Data
 
-* subject_test/subject_train were merged and converted to a factor variable "Subject" with 30 levels - 1:30, each representing one subject.  
-* y_test/y_train were merged and converted to a factor variable "Activity" with 6 levels - WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING, each representing one activity.
-* x_test/x_train were merged and only the mean(), std() and meanFreq() variables derived from the signals were retained (79 in all), and considered numeric amounts. Annex 2 below lists the variables in the processed data.
-* For each "Subject-Activity" combination (180 in all - 30 subjects x 6 activities), the average of each of the 79 selected variables across all observations of that "Subject-Activity" combination was taken using the summarise_each(funs(mean)) function. 
-* The processed data is a 180 x 81 data frame, with 180 observations corresponding to the 180 unique "Subject-Activity" combinations, and for each combination, the average value of each of the 79 selected variables that contain mean(), std() or meanFreq().  
+subject_test/subject_train were merged and converted to a factor variable "Subject" with 30 levels - 1:30, each representing one subject.  
+
+y_test/y_train were merged and converted to a factor variable "Activity" with 6 levels - WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING, each representing one activity.
+
+x_test/x_train were merged and only the mean(), std() and meanFreq() variables derived from the signals were retained (79 in all), and considered numeric amounts. **Annex 2** below lists the variables in the processed data.
+
+For each "Subject-Activity" combination (180 in all - 30 subjects x 6 activities), the average of each of the 79 selected variables across all observations of that "Subject-Activity" combination was taken using the summarise_each(funs(mean)) function. 
+
+The processed data is a 180 x 81 data frame, with 180 observations corresponding to the 180 unique "Subject-Activity" combinations, and for each combination, reflects the average value of each of the 79 selected variables that contain mean(), std() or meanFreq().  
 
 ## Annex 1:  Full List of Signals
 
