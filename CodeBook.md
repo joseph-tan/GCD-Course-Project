@@ -28,10 +28,10 @@ For each subject (subject_test/subject_train) and activity (y_test/y_train), the
 
 **Annex 1** below contains the full list of signals.  
 
-### *Derivation of raw data*  
+##### *Derivation of raw data*  
 Time domain signals were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals using another low pass Butterworth filter with a corner frequency of 0.3 Hz. 
 
-### *Derivation of variables*  
+##### *Derivation of variables*  
 The set of variables that were estimated from these signals are:   
 
 * mean(): Mean value  
