@@ -23,7 +23,7 @@ For each subject (subject_test/subject_train) and activity (y_test/y_train), the
 * Angular velocity signals captured by the gyroscope are marked as 'Gyro' and **are in units of radians per second**
 * Linear jerk signals derived in time from body linear acceleration are marked as 'AccJerk' and **are in units of g per second**
 * Angular jerk signals derived in time from angular velocity are marked as 'GyroJerk' and **are in units of radians per second^2**
-* Magnitude of three-dimensional signals calculated using the Euclidean norm are suffixed with 'Mag' and **follow the units of Acc/Gyro/AccJerk/GyroJerk**
+* Magnitude of three-dimensional signals calculated using the Euclidean norm are suffixed with 'Mag' and **follow the units of Acc/Gyro/AccJerk/GyroJerk** (i.e. tBodyAccMag follows the units of Acc (g))
 * -X, -Y and -Z are used to denote 3-axial signals in the X, Y and Z directions respectively
 **Annex 1** below contains the full list of signals.  
 
