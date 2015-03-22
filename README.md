@@ -33,10 +33,10 @@ into a character vector f1.  These are inherently descriptive and further inform
 features_info.txt file in the UCI HAR Dataset folder, but we clean up the names by using str_replace_all() to:
 * Converting "-"s to "."s for easier reading - this yields f2
 * Removing "()"s which don't add to the meaning of the names - this yields f3
-* Changing "std" to "std_dev" which is more intuitive as an abbreviation for standard deviation - this yields f4
+* Changing "std" to "std_dev" which is more intuitive as an abbreviation for standard deviation - this yields **f4**
 
 We then create a column names vector "col" by concatenating the strings "Subject" (corresponding to column 1 or 
-the subjtest/subjtrain frame), "Activity" (corresponding to column 2 or the ytest/ytrain frame) and f4, and assign
+the subjtest/subjtrain frame), "Activity" (corresponding to column 2 or the ytest/ytrain frame) and **f4**, and assign
 col as the labels for the data frame "data" using the colnames() function.  
 
 
