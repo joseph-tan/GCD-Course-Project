@@ -39,13 +39,18 @@ We then create a column names vector "col" by concatenating the strings "Subject
 the subjtest/subjtrain frame), "Activity" (corresponding to column 2 or the ytest/ytrain frame) and **f4**, and assign
 col as the labels for the data frame "data" using the colnames() function.  
 
+## Extracts mean and standard deviation (lines 53, 58-59)
 
+Based on the features_info.txt file in the UCI HAR Dataset folder, the variables that represent the means and standard
+deviations for each measurement contain "mean()", "std()" or "meanFreq()" in their names in the features data frame.  
+We have excluded the variables containing gravityMean, tBodyAccMean, tBodyAccJerkMean, tBodyGyroMean and tBodyGyroJerkMean
+as they are used in the "angle()" variable and therefore don't represent a mean or standard deviation quantity.  
 
-
-
-## Extracts mean and standard deviation (
-
-
-
+We use the grep() function to identify which variables in the features data frame contain "mean" and "std".  This 
+captures "mean()", "std()" and "meanFreq()" variables but not the excluded variables with capitalised "Mean", as the 
+grep() function is by default case-sensitive.  The grep() function yields an integer vector with the column numbers 
+corresponding to the mean/std variables, but we (i) sort this in ascending order of entries and (ii) add 2 to this 
+vector because the columns in xtest/xtrain are right-shifted by 2 in the "data" data frame due to the left-side 
+column binding of subjtest/subjtrain (1 column) and ytest/ytrain (1 column).
 
 Some people have lost marks in previous courses for not making it easy for their reviewers to give them marks. Don't just make a tidy data set, make it clear to people reviewing it why it is tidy. When you given the variables descriptive names, explain why the names are descriptive. Don't give your reviewers the opportunity to be confused about your work, spell it out to them.
