@@ -73,8 +73,8 @@ file.  We therefore read this file into a data frame "activities" using the read
 
 We then mutate the "Activity" column of data3, going over each row using the sapply() function to (i) take in the
 activity label (1:6), (ii) match it against the corresponding activity (e.g. walking, standing) in the "activities" 
-data frame, and (iii) spit out the activity as a factor.  This activity name then replaces its activity label in the 
-"Activity" column, so instead of a number, we have a name of an activity for each observation. 
+data frame, and (iii) spit out the activity name as a factor.  This activity name then replaces its activity label 
+(i.e. a number) for each observation in the "Activity" column. 
 The mutated data frame is stored as "data4".
 
 
