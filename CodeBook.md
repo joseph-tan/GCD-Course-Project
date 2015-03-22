@@ -17,8 +17,8 @@ For each record it is provided:
 ## Raw Data
 
 For each subject (subject_test/subject_train) and activity (y_test/y_train), the raw data (x_test/x_train) come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ.  The signals can be understood as follows:
-* Time domain signals are prefixed with a 't' while frequency domain signals (i.e. after a Fast Fourier Transform (FFT) is applied) are prefixed with a 'f'
-* 'Body' and "Gravity' signals are marked as such
+* Time domain signals are prefixed with a 't' while frequency domain signals (i.e. after a Fast Fourier Transform (FFT) is applied) are prefixed with an 'f'
+* 'Body' and 'Gravity' signals are marked as such
 * Acceleration signals captured by the accelerometer are marked as 'Acc' and **are in standard gravity units 'g'**
 * Angular velocity signals captured by the gyroscope are marked as 'Gyro' and **are in units of radians per second**
 * Linear jerk signals derived in time from body linear acceleration are marked as 'AccJerk' and **are in units of g per second**
