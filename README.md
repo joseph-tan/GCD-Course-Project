@@ -3,11 +3,11 @@
 ## Objective
 
 This README explains the code in the run_analysis.R file, which:
-    * Merges the training and the test sets to create one data set;
-    * Extracts only the measurements on the mean and standard deviation for each measurement; 
-    * Uses descriptive activity names to name the activities in the data set;
-    * Appropriately labels the data set with descriptive variable names; and
-    * From the data set created, creates a second, independent tidy data set with 
+* Merges the training and the test sets to create one data set;
+* Extracts only the measurements on the mean and standard deviation for each measurement; 
+* Uses descriptive activity names to name the activities in the data set;
+* Appropriately labels the data set with descriptive variable names; and
+* From the data set created, creates a second, independent tidy data set with 
     the average of each variable for each activity and each subject.
     
 ## Merge training and test sets (lines 16-19, 24-27, 31)
