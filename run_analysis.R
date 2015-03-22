@@ -1,3 +1,9 @@
+## This R code merges the test and training data in the "UCI HAR Dataset" and
+## creates a tidy data set that contains the average of each mean and standard deviation
+## measurements in the test and training data for each Subject-Activity combination
+## (180 observations in all for 30 subjects x 6 activities).  The tidy data set
+## is then written to a file in the working directory "tidydata.txt".   
+
 ## This analysis assumes that the Samsung data is saved in a folder "UCI HAR Dataset" 
 ## located in the working directory
 
@@ -65,6 +71,6 @@ tidydata <- data4 %>%
 group_by(Subject, Activity) %>%
 summarise_each(funs(mean))
 
-## Writes "tidydata" to a txt file
+## Writes "tidydata" to a txt file "tidydata.txt"
 
 write.table(tidydata,file="./tidydata.txt", row.names=FALSE)
