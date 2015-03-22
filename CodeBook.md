@@ -62,7 +62,7 @@ x_test/x_train were merged and only the mean(), std() and meanFreq() variables d
 
 For each "Subject-Activity" combination (180 in all - 30 subjects x 6 activities), the average of each of the 79 selected variables across all observations of that "Subject-Activity" combination was taken using the summarise_each(funs(mean)) function. 
 
-The processed data is a 180 x 81 data frame, with 180 observations corresponding to the 180 unique "Subject-Activity" combinations, and for each combination, reflects the average value of each of the 79 selected variables that contain mean(), std() or meanFreq().  
+The processed data is a 180 x 81 data frame, with 180 observations corresponding to the 180 unique "Subject-Activity" combinations, and for each combination, reflects the average value of each of the 79 selected variables that contain mean(), std() or meanFreq().  As the processed data reflect average values, the units for each variable are the same as that of the raw data. 
 
 ## Annex 1:  Full List of Signals
 
