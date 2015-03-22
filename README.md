@@ -31,12 +31,13 @@ The columns of xtest and xtrain correspond to the entries in the features.txt fi
 read features.txt into a data frame, and coerce the second column of the data frame (with the names of the features)
 into a character vector f1.  
 
-These are inherently descriptive, as they indicate whether they are time (t) or frequency (f) domain signals, 
+The entries of f1 are inherently descriptive, as they indicate whether they are time (t) or frequency (f) domain signals, 
 come from the Body or Gravity, were obtained from the accelerometer (Acc) or gyroscope (Gyro), were processed 
-to calculate Jerk or Magnitude, and the axial direction (X, Y, Z).  Further information, particularly on how these signals
-were processed to obtain the final variables, can be found in the features_info.txt file in the UCI HAR Dataset folder. 
+to calculate Jerk or magnitude (Mag), and the axial direction (X, Y, Z).  Further information, particularly on how these
+signals were processed to obtain the final variables, can be found in the features_info.txt file in the UCI HAR 
+Dataset folder. 
 
-Nonetheless, we clean up the names by using str_replace_all() to:
+Nonetheless, we clean up the entries by using str_replace_all() to:
 * Converting "-"s to "."s for easier reading - this yields f2
 * Removing "()"s which don't add to the meaning of the names - this yields f3
 * Changing "std" to "std_dev" which is more intuitive as an abbreviation for standard deviation - this yields **f4**
