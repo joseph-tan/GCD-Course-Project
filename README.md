@@ -29,8 +29,14 @@ and training data have the same number of columns (563 - 1 from subject, 1 from 
 
 The columns of xtest and xtrain correspond to the entries in the features.txt file.  So we use read.table() to 
 read features.txt into a data frame, and coerce the second column of the data frame (with the names of the features)
-into a character vector f1.  These are inherently descriptive and further information can be found in the 
-features_info.txt file in the UCI HAR Dataset folder, but we clean up the names by using str_replace_all() to:
+into a character vector f1.  
+
+These are inherently descriptive, as they indicate whether they are time (t) or frequency (f) domain signals, 
+come from the Body or Gravity, were obtained from the accelerometer (Acc) or gyroscope (Gyro), were processed 
+to calculate Jerk or Magnitude, and the axial direction (X, Y, Z).  Further information, particularly on how these signals
+were processed to obtain the final variables, can be found in the features_info.txt file in the UCI HAR Dataset folder. 
+
+Nonetheless, we clean up the names by using str_replace_all() to:
 * Converting "-"s to "."s for easier reading - this yields f2
 * Removing "()"s which don't add to the meaning of the names - this yields f3
 * Changing "std" to "std_dev" which is more intuitive as an abbreviation for standard deviation - this yields **f4**
@@ -42,15 +48,17 @@ col as the labels for the data frame "data" using the colnames() function.
 ## Extracts mean and standard deviation (lines 53, 58-59)
 
 Based on the features_info.txt file in the UCI HAR Dataset folder, the variables that represent the means and standard
-deviations for each measurement contain "mean()", "std()" or "meanFreq()" in their names in the features data frame.  
+deviations for each measurement contain "mean()", "std()" or "meanFreq()" in the features data frame.  
 We have excluded the variables containing gravityMean, tBodyAccMean, tBodyAccJerkMean, tBodyGyroMean and tBodyGyroJerkMean
 as they are used in the "angle()" variable and therefore don't represent a mean or standard deviation quantity.  
 
-We use the grep() function to identify which variables in the features data frame contain "mean" and "std".  This 
+We use the grep() function to identify which entries in the features data frame contain "mean" and "std".  This 
 captures "mean()", "std()" and "meanFreq()" variables but not the excluded variables with capitalised "Mean", as the 
-grep() function is by default case-sensitive.  The grep() function yields an integer vector with the column numbers 
-corresponding to the mean/std variables, but we (i) sort this in ascending order of entries and (ii) add 2 to this 
-vector because the columns in xtest/xtrain are right-shifted by 2 in the "data" data frame due to the left-side 
-column binding of subjtest/subjtrain (1 column) and ytest/ytrain (1 column).
+grep() function is by default case-sensitive.  
+
+The grep() function yields an integer vector corresponding to the column numbers of "data" that contain means or 
+standard deviations, but we first have to (i) sort this in ascending order of entries, and (ii) add 2 to this vector 
+because the columns of xtest/xtrain (i.e. the entries in the features data frame) are right-shifted by 2 in the "data" 
+data frame due to the left-side column binding of subjtest/subjtrain (1 column) and ytest/ytrain (1 column).
 
 Some people have lost marks in previous courses for not making it easy for their reviewers to give them marks. Don't just make a tidy data set, make it clear to people reviewing it why it is tidy. When you given the variables descriptive names, explain why the names are descriptive. Don't give your reviewers the opportunity to be confused about your work, spell it out to them.
