@@ -61,5 +61,23 @@ The grep() function yields an integer vector corresponding to the column numbers
 standard deviations, but we first have to (i) sort this in ascending order of entries, and (ii) add 2 to this vector 
 because the columns of xtest/xtrain (i.e. the entries in the features data frame) are right-shifted by 2 in the "data" 
 data frame due to the left-side column binding of subjtest/subjtrain (1 column) and ytest/ytrain (1 column).
+This integer vector is stored in selectcols.
+
+Finally, we subset the "data" data frame so only the "Subject", "Activity" and selectcols remain (data2) and wrap 
+this using the tbl_df() function in the dplyr package to yield the data frame "data3".  
+
+## Names activities in the data set (lines 37, 64)
+
+The mapping of activity labels (1:6) in the ytest/ytrain files to actual activities can be found in the activity_labels.txt
+file.  We therefore read this file into a data frame "activities" using the read.table() function.  
+
+We then mutate the "Activity" column of data3, going over each row using the sapply() function to (i) take in the
+activity label (1:6), (ii) match it against the corresponding activity (e.g. walking, standing) in the "activities" 
+data frame, and (iii) spit out the activity as a factor.  This activity name then replaces its activity label in the 
+"Activity" column, so instead of a number, we have a name of an activity for each observation. 
+The mutated data frame is stored as "data4".
+
+
+
 
 Some people have lost marks in previous courses for not making it easy for their reviewers to give them marks. Don't just make a tidy data set, make it clear to people reviewing it why it is tidy. When you given the variables descriptive names, explain why the names are descriptive. Don't give your reviewers the opportunity to be confused about your work, spell it out to them.
