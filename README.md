@@ -29,7 +29,13 @@ and training data have the same number of columns (563 - 1 from subject, 1 from 
 
 The columns of xtest and xtrain correspond to the entries in the features.txt file.  So we use read.table() to 
 read features.txt into a data frame, and coerce the second column of the data frame (with the names of the features)
-into a character vector f1.  
+into a character vector f1.  These are inherently descriptive and further information can be found in the 
+features_info.txt file in the UCI HAR Dataset folder, but we clean up the names by using str_replace_all() to:
+* Converting "-"s to "."s for easier reading - this yields f2
+* Removing "()"s which don't add to the meaning of the names - this yields f3
+* Changing "std" to "std_dev" which is more intuitive as an abbreviation for standard deviation - this yields f4
+
+
 
 
 
