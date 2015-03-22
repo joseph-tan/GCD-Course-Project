@@ -38,7 +38,7 @@ The entries of f1 are inherently descriptive, as they indicate whether they are 
 come from the Body or Gravity, were obtained from the accelerometer (Acc) or gyroscope (Gyro), were processed 
 to calculate Jerk or magnitude (Mag), and the axial direction (X, Y, Z).  The variable names are already long enough as
 they are, so I decided not to expand them further, but instead, further information, particularly on how these
-signals were processed to obtain the final variables, can be found in the codebook and the features_info.txt file 
+signals were processed to obtain the final variables, can be found in the Code Book and the features_info.txt file 
 in the UCI HAR Dataset folder. 
 
 Nonetheless, we clean up the entries by using str_replace_all() to:
@@ -95,13 +95,12 @@ names.  Where these may not be human-readable, we have explained them in the Cod
 
 ## Writes tidydata data frame to tidydata.txt file (line 76)
 
-Finally, per the assignment instructions, we write the data frame into a file called "tidydata.txt" which
-is saved in the user's working directory.  
+Finally, we write the data frame into a file called "tidydata.txt" which is saved in the user's working directory.  
 
-This file can be opened in R using the following code:
-data100 <- read.table("./tidydata.txt", header = TRUE)
+This file can be opened in R using the following code:  
+data100 <- read.table("./tidydata.txt", header = TRUE)  
 View(data100)
 
-References:
-https://class.coursera.org/getdata-012/forum/thread?thread_id=9
+References:  
+https://class.coursera.org/getdata-012/forum/thread?thread_id=9  
 "The components of tidy data" lecture slides
